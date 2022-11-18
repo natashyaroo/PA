@@ -31,13 +31,18 @@ def transfer(username):
     saldo_lama = user[username]["saldo"]
     for usertujuan, data in user.items():
         if tujuan == usertujuan:
-            if user[username]["saldo"] > 0:
-                saldo_lama_tujuan = data["saldo"]
-                saldo_tf = int(input("Masukan saldo yang ingin di transfer = "))
-                if user[username]["saldo"] > saldo_tf:
-                    user[usertujuan].update({"saldo": saldo_lama_tujuan + saldo_tf})
-                    user[username].update({"saldo": saldo_lama - saldo_tf})
-                    print ('Anda Berhasil Transfer.')
+            saldo_lama_tujuan = data["saldo"]
+            saldo_tf = int(input("Masukan saldo yang ingin di transfer = "))
+            if user[username]["saldo"] > saldo_tf:
+                user[usertujuan].update({"saldo": saldo_lama_tujuan + saldo_tf})
+                user[username].update({"saldo": saldo_lama - saldo_tf})
+                print ('Anda Berhasil Transfer.')
+            else:
+               print("saldo anda tidak mencukupi") 
+        else:
+            os.system ("cls")
+            print("user yang dituju tidak terdaftar")
+            
 
 
    
